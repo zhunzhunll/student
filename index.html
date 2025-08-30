@@ -116,7 +116,7 @@
                     
                     // 转换为JSON格式，表头与Excel第一行对应
                     studentData = XLSX.utils.sheet_to_json(worksheet, {
-                        header: ['序号', '姓名', '身份证后六位', '专业', '对接老师']
+                        header: ['序号', '身份证号', '姓名', '性别', '报读层次', '第一专业', '第一专业所在校区', '填报人', '报到状态']
                     });
                     studentData.shift(); // 移除JSON中的表头行（保留实际数据）
                     
@@ -161,9 +161,13 @@
                     resultHtml += `
                         <div style="margin-bottom: 20px; ${index > 0 ? 'padding-top: 20px; border-top: 1px solid #eee;' : ''}">
                             <div class="result-item"><strong>姓名：</strong>${student.姓名 || '未填写'}</div>
-							<div class="result-item"><strong>身份证后六位：</strong>${student.身份证后六位 || '未填写'}</div>
-                            <div class="result-item"><strong>专业：</strong>${student.专业 || '未填写'}</div>
-                            <div class="result-item"><strong>对接老师：</strong>${student.对接老师 || '未填写'}</div>
+							<div class="result-item"><strong>身份证号：</strong>${student.身份证号 || '未填写'}</div>
+							<div class="result-item"><strong>性别：</strong>${student.性别 || '未填写'}</div>
+							<div class="result-item"><strong>报读层次：</strong>${student.报读层次 || '未填写'}</div>
+                            <div class="result-item"><strong>第一专业：</strong>${student.第一专业 || '未填写'}</div>
+							<div class="result-item"><strong>第一专业所在校区：</strong>${student.第一专业所在校区 || '未填写'}</div>
+                            <div class="result-item"><strong>填报人：</strong>${student.填报人 || '未填写'}</div>
+							<div class="result-item"><strong>报到状态：</strong>${student.报到状态 || '未填写'}</div>
                         </div>
                     `;
                 });
