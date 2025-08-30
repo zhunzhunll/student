@@ -149,12 +149,12 @@
 
             // 3. 模糊匹配姓名（支持部分匹配，如“张”匹配所有姓张的学生）
             const matchedStudents = studentData.filter(student => 
-                student.姓名 && student.姓名.includes(searchName)
+                student.姓名 && student.姓名 === searchName
             );
 
             // 4. 显示查询结果（仅展示姓名、专业、对接老师）
             if (matchedStudents.length === 0) {
-                resultBox.innerHTML = '<div class="error">未找到姓名包含“' + searchName + '”的学生信息，请检查姓名是否输入正确</div>';
+                resultBox.innerHTML = '<div class="error">未找到姓名“' + searchName + '”的学生信息，请输入全名或检查姓名是否输入正确</div>';
             } else {
                 let resultHtml = '';
                 matchedStudents.forEach((student, index) => {
